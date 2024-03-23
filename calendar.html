@@ -3,130 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calendar with Dropdown Filter</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-
-  #calendar {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #ddd; 
-  }
-
-  #calendar th, #calendar td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-  }
-
-  #filter {
-    margin-bottom: 20px;
-  }
-
-  #filter select {
-    padding: 10px;
-    font-size: 16px;
-  }
-
-  #nav {
-    margin-bottom: 20px;
-  }
-
-  #nav button {
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-</style>
+<title>Google Calendar Integration</title>
 </head>
 <body>
-  <div class="container">
-    <h1>Calendar with Dropdown Filter</h1>
-    <div id="nav">
-      <button id="prevMonth">Previous Month</button>
-      <button id="nextMonth">Next Month</button>
-    </div>
-    <table id="calendar">
-      <caption id="monthYear"></caption> 
-      <thead>
-        <tr>
-          <th>Sun</th>
-          <th>Mon</th>
-          <th>Tue</th>
-          <th>Wed</th>
-          <th>Thu</th>
-          <th>Fri</th>
-          <th>Sat</th>
-        </tr>
-      </thead>
-      <tbody id="calendarBody">
-      </tbody>
-    </table>
-  </div>
+  <h1>Google Calendar Integration</h1>
+
+  <!-- Container to display events -->
+  <div id="events"></div>
+
+  <!-- Load Google Calendar API client library -->
+  <script src="https://apis.google.com/js/api.js"></script>
 
   <script>
-    
-    function generateCalendar(year, month) {
-      var daysInMonth = new Date(year, month + 1, 0).getDate();
-      var firstDayOfMonth = new Date(year, month, 1).getDay();
-      var calendarBody = document.getElementById('calendarBody');
-      calendarBody.innerHTML = '';
-
-      var date = 1;
-      for (var i = 0; i < 6; i++) {
-        var row = document.createElement('tr');
-        for (var j = 0; j < 7; j++) {
-          if (i === 0 && j < firstDayOfMonth) {
-            var cell = document.createElement('td');
-            row.appendChild(cell);
-          } else if (date > daysInMonth) {
-            break;
-          } else {
-            var cell = document.createElement('td');
-            cell.textContent = date;
-            row.appendChild(cell);
-            date++;
-          }
-        }
-        calendarBody.appendChild(row);
-      }
-
-      var monthYearCaption = document.getElementById('monthYear');
-      monthYearCaption.textContent = new Date(year, month).toLocaleString('default', { month: 'long', year: 'numeric' });
+    // Function to load Google Calendar API client library
+    function loadClient() {
+      gapi.client.load('calendar', 'v3', listUpcomingEvents);
     }
-    var currentDate = new Date();
-    var currentYear = currentDate.getFullYear();
-    var currentMonth = currentDate.getMonth();
-    generateCalendar(currentYear, currentMonth);
 
-    document.getElementById('prevMonth').addEventListener('click', function() {
-      currentMonth--;
-      if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
-      }
-      generateCalendar(currentYear, currentMonth);
-    });
+    // Function to list upcoming events
+    function listUpcomingEvents() {
+      var request = gapi.client.calendar.events.list({
+        'calendarId': 'primary',
+        'timeMin': (new Date()).toISOString(),
+        'showDeleted': false,
+        'singleEvents': true,
+        'orderBy': 'startTime'
+      });
 
-    document.getElementById('nextMonth').addEventListener('click', function() {
-      currentMonth++;
-      if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-      }
-      generateCalendar(currentYear, currentMonth);
-    });
+      request.execute(function(response) {
+        var events = response.items;
+        var eventList = document.getElementById('events');
+        if (events.length > 0) {
+          eventList.innerHTML = '<h2>Upcoming Events:</h2>';
+          for (var i = 0; i < events.length; i++) {
+            var event = events[i];
+            var eventDetails = '<p><strong>' + event.summary + '</strong><br>';
+            if (event.start.dateTime) {
+              eventDetails += 'Start: ' + event.start.dateTime + '<br>';
+            }
+            if (event.end.dateTime) {
+              eventDetails += 'End: ' + event.end.dateTime + '<br>';
+            }
+            eventDetails += '</p>';
+            eventList.innerHTML += eventDetails;
+          }
+        } else {
+          eventList.innerHTML = '<p>No upcoming events found.</p>';
+        }
+      });
+    }
+
+    // Initialize Google Calendar API client library
+    gapi.load('client', loadClient);
   </script>
 </body>
 </html>
+
 
