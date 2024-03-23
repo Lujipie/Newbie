@@ -84,27 +84,36 @@
     <input type="submit" value="Add Event">
   </form>
 
-  <script src="https://script.google.com/macros/s/AKfycbzhywBz4yX1levpdM_fCU1-_0dhw41NOuN0oI5-4AQyI01QGuy7zjANy1_qlBRicgfZbA/exec"></script>
-
-  <script>
-    // JavaScript to handle form submission
-    const form = document.getElementById('eventForm');
-    form.addEventListener('submit', function(event) {
+ <script>
+    document.getElementById('eventForm').addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent default form submission
 
-      const formData = new FormData(form);
-      const eventData = {};
-      formData.forEach((value, key) => {
-        eventData[key] = value;
-      });
+      // Get form data
+      const title = document.getElementById('title').value;
+      const date = document.getElementById('date').value;
+      const startTime = document.getElementById('startTime').value;
+      const endTime = document.getElementById('endTime').value;
+      const tag = document.getElementById('tag').value;
 
-      // Call Google Apps Script function to handle form submission
+      // Construct the data object
+      const eventData = {
+        title: title,
+        date: date,
+        startTime: startTime,
+        endTime: endTime,
+        tag: tag
+      };
+
+      // Send the data to Google Apps Script
       google.script.run.submitFormData(eventData);
 
       // Optional: Clear the form fields after submission
-      form.reset();
+      this.reset();
     });
   </script>
+
+  <!-- Load Google Apps Script -->
+  <script src="https://script.google.com/macros/s/AKfycbzhywBz4yX1levpdM_fCU1-_0dhw41NOuN0oI5-4AQyI01QGuy7zjANy1_qlBRicgfZbA/exec"></script>
 </body>
 </html>
 
