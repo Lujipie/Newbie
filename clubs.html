@@ -1,86 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UTD Clubs</title>
-  <link rel="stylesheet" href="styles.css">
-  <!-- Add any additional styles or scripts here -->
-  <style>
-    /* Additional styles specific to the Clubs page */
-    .club-listings {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    
-    .club {
-      background-color: #f9f9f9;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s ease-in-out;
-      width: 300px;
-    }
-    
-    .club:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    }
-    
-    .club img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-    
-    .club h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-    
-    .club p {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-    
-    .club a {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #9013fe;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-    
-    .club a:hover {
-      background-color: #6600cc;
-    }
-  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UTD Clubs</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Add any additional styles or scripts here -->
+      <style>
+        /* Additional styles specific to the Clubs page */
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Cute font */
+            background-color: #f7f7f7; /* Light background */
+            color: #333; /* Dark text color */
+        }
+        
+        .club-listings {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .club {
+            background-color: #fff; /* White background for club cards */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            width: 300px;
+        }
+        
+        .club:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .club img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .club h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ff6b81; /* Fun color for club names */
+        }
+        
+        .club p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #777; /* Lighter text color for descriptions */
+        }
+        
+        .club a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #feca57; /* Fun button color */
+            color: #fff; /* White text color for buttons */
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .club a:hover {
+            background-color: #ff9f43; /* Darker button color on hover */
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Explore UTD Clubs</h1>
-    <p>Find your passion and get involved!</p>
-  </header>
+    <header>
+        <h1 style="color: #ff6b81;">Explore UTD Clubs</h1> <!-- Fun color for heading -->
+        <p style="color: #777;">Find your passion and get involved!</p> <!-- Lighter text color for description -->
+    </header>
 
-  <main>
-    <section class="club-listings">
-      <div class="club">
-        <img src="club1.jpg" alt="Club 1">
-        <h2>Club 1</h2>
-        <p>Description of Club 1.</p>
-        <a href="#">Learn More</a>
-      </div>
-      <!-- Repeat similar structure for other clubs -->
-    </section>
-  </main>
+    <main>
+      <section class="club-listings">
+        <div class="club">
+          <img src="ieee.jpg" alt="IEEE" />
+          <h2>
+            Institute of Electrical and Electronics Engineers, Inc. (IEEE)
+          </h2>
+          <p>Description of IEEE club.</p>
+          <a href="#">Learn More</a>
+        </div>
 
-  <footer>
-    <p>&copy; 2024 UTD Freshmen Hub</p>
-  </footer>
-</body>
+        <div class="club">
+          <img
+            src="ieee_industry.jpg"
+            alt="IEEE - Industry Applications Society"
+          />
+          <h2>IEEE – Industry Applications Society</h2>
+          <p>Description of IEEE - Industry Applications Society.</p>
+          <a href="#">Learn More</a>
+        </div>
+
+        <div class="club">
+          <img src="ecs_honors.jpg" alt="ECS Honors Society" />
+          <h2>ECS Honors Society</h2>
+          <p>Description of ECS Honors Society.</p>
+          <a href="#">Learn More</a>
+        </div>
+
+        <div class="club">
+          <img src="makerspace.jpg" alt="Makerspace" />
+          <h2>Makerspace</h2>
+          <p>Description of Makerspace club.</p>
+          <a href="#">Learn More</a>
+        </div>
+
+        <div class="club">
+          <img
+            src="rise.jpg"
+            alt="Reaching & Inspiring Student Engineers (RISE)"
+          />
+          <h2>Reaching & Inspiring Student Engineers (RISE)</h2>
+          <p>Description of RISE club.</p>
+          <a href="#">Learn More</a>
+        </div>
+
+        <div class="club">
+          <img
+            src="shpe.jpg"
+            alt="Society of Hispanic Professional Engineers (SHPE)"
+          />
+          <h2>Society of Hispanic Professional Engineers (SHPE)</h2>
+          <p>Description of SHPE club.</p>
+          <a href="#">Learn More</a>
+        </div>
+
+        <div class="club">
+          <img src="nsbe.jpg" alt="The National Society of Black Engineers" />
+          <h2>The National Society of Black Engineers</h2>
+          <p>Description of NSBE club.</p>
+          <a href="#">Learn More</a>
+        </div>
+
+        <div class="club">
+          <img src="women_who_compute.jpg" alt="Women Who Compute" />
+          <h2>Women Who Compute</h2>
+          <p>Description of Women Who Compute club.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 UTD Freshmen Hub</p>
+    </footer>
+  </body>
 </html>
