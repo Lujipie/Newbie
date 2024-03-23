@@ -54,7 +54,9 @@
   </head>
   <body>
     <div class="container">
-      <h1>Welcome UTD Freshmen!</h1>
+  
+      <h1 id="welcome-text"></h1>
+
       <h2>
         We're thrilled to have you here. Whether you're feeling excited,
         nervous, or somewhere in between, know that you've found a supportive
@@ -72,21 +74,22 @@
     <script src="script.js"></script>
     <script>
       console.log("Script loaded");
-      
-      const welcomeText = "Welcome UTD Freshman!";
-      const welcomeDiv = document.getElementById("welcome-text");
 
-      function typeWriter(text, i) {
-        if (i < text.length) {
-          welcomeDiv.innerHTML += text.charAt(i);
-          i++;
-          setTimeout(function () {
-            typeWriter(text, i);
-          }, 100); // Adjust the typing speed (milliseconds)
-        }
-      }
+const welcomeText = "Welcome UTD Freshman!";
+const welcomeDiv = document.getElementById("welcome-text");
 
-      typeWriter(welcomeText, 0);
+function typeWriter(text, i) {
+  if (i < text.length) {
+    welcomeDiv.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(function () {
+      typeWriter(text, i);
+    }, 100); // Adjust the typing speed (milliseconds)
+  }
+}
+
+typeWriter(welcomeText, 0);
+
     </script>
   </body>
 </html>
