@@ -63,7 +63,7 @@
     <label for="title">Event Title:</label><br>
     <input type="text" id="title" name="title" required><br>
 
-    <label for="dates">Event Date(s):</label><br>
+    <label for="dates">Event Date:</label><br>
     <input type="text" id="dates" name="dates" required><br>
 
     <label for="startTime">Start Time:</label><br>
@@ -84,7 +84,10 @@
     <input type="submit" value="Add Event">
   </form>
 
+  <script src="https://script.google.com/macros/s/AKfycbzhywBz4yX1levpdM_fCU1-_0dhw41NOuN0oI5-4AQyI01QGuy7zjANy1_qlBRicgfZbA/exec"></script>
+
   <script>
+    // JavaScript to handle form submission
     const form = document.getElementById('eventForm');
     form.addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent default form submission
@@ -102,9 +105,6 @@
       form.reset();
     });
   </script>
-
-  <!-- Load Google Apps Script -->
-  <script src="https://apis.google.com/js/api.js"></script>
 </body>
 </html>
 
