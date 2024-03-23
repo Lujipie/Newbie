@@ -1,108 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Google Calendar Integration</title>
-    <style>
-      body {
-        font-family: "Comic Sans MS", cursive, sans-serif; /* Fun and playful font */
-        margin: 0;
-        padding: 20px;
-        background-color: #f0f8ff; /* Light blue background */
-      }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Calendar Integration</title>
+<style>
+  body {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun and playful font */
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f8ff; /* Light blue background */
+  }
 
-      h1 {
-        color: #ff69b4; /* Pink color for the heading */
-      }
+  h1 {
+    color: #ff69b4; /* Pink color for the heading */
+  }
 
-      #calendar {
-        width: 100%;
-        height: 600px; /* Adjust the height as needed */
-        margin-bottom: 20px;
-        border-radius: 20px; /* Rounded corners */
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
-      }
+  #calendar {
+    width: 100%;
+    height: 600px; /* Adjust the height as needed */
+    margin-bottom: 20px;
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  }
 
-      #event-filter {
-        margin-bottom: 20px;
-      }
+  #event-filter {
+    margin-bottom: 20px;
+  }
 
-      select {
-        padding: 10px;
-        font-size: 16px;
-        border-radius: 10px; /* Rounded dropdown */
-        border: 2px solid #ff69b4; /* Pink border */
-        background-color: #fff; /* White background */
-        color: #ff69b4; /* Pink text color */
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Google Calendar Integration</h1>
+  select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px; /* Rounded dropdown */
+    border: 2px solid #ff69b4; /* Pink border */
+    background-color: #fff; /* White background */
+    color: #ff69b4; /* Pink text color */
+  }
+</style>
+</head>
+<body>
+  <h1>Google Calendar Integration</h1>
 
-    <!-- Filter tab for events -->
-    <div id="event-filter">
-      <label for="filter">Filter by Event Type:</label>
-      <select id="filter">
-        <option value="all">All</option>
-        <option value="event1">Event Type 1</option>
-        <option value="event2">Event Type 2</option>
-        <option value="event3">Event Type 3</option>
-      </select>
-    </div>
+  <!-- Filter tab for events -->
+  <div id="event-filter">
+    <label for="filter">Filter by Event Type:</label>
+    <select id="filter">
+      <option value="all">All</option>
+      <option value="event1">Event Type 1</option>
+      <option value="event2">Event Type 2</option>
+      <option value="event3">Event Type 3</option>
+    </select>
+  </div>
 
-    <!-- Google Calendar iframe -->
-    <iframe
-      src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&bgcolor=%23be6c08&showTitle=0&showPrint=0&showTz=0&showCalendars=0&src=NjEzZGFkMGJmOTUyOWI4MWIzNmFmZmI0OTgyOWRjMzVmYWNkNzU2ZDdkY2U2NDg4YmE0N2ZhYWVkMTZhY2NlMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23AD1457"
-      style="border: solid 1px #777"
-      width="800"
-      height="600"
-      frameborder="0"
-      scrolling="no"
-    ></iframe>
+  <!-- Google Calendar iframe -->
+<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&bgcolor=%23be6c08&showTitle=0&showPrint=0&showTz=0&showCalendars=0&src=NjEzZGFkMGJmOTUyOWI4MWIzNmFmZmI0OTgyOWRjMzVmYWNkNzU2ZDdkY2U2NDg4YmE0N2ZhYWVkMTZhY2NlMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23AD1457" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
-    <!-- Load Google Calendar API client library -->
-    <script src="https://apis.google.com/js/api.js"></script>
+  <!-- Load Google Calendar API client library -->
+  <script src="https://apis.google.com/js/api.js"></script>
 
     <script>
-          // Function to initialize Google Calendar API client library
-          function initClient() {
-            gapi.client.init({
-              'apiKey': 'AIzaSyA8sPKwDNUWTAKAygbCkvqtXsIsN6Fneqw',
-              'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
-            }).then(function() {
-              // Load calendar and apply event filter
-              loadCalendar();
-            }, function(error) {
-              console.error('Error initializing Google Calendar API:', error);
-            });
+      // Function to initialize Google Calendar API client library
+      function initClient() {
+        gapi.client.init({
+          apiKey: 'AIzaSyA8sPKwDNUWTAKAygbCkvqtXsIsN6Fneqw',
+          discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
+        }).then(
+          function() {
+            // Load calendar and apply event filter
+            loadCalendar();
+            fetchAndAddEvents(); // Call fetchAndAddEvents function after initializing client
+          },
+          function(error) {
+            console.error('Error initializing Google Calendar API:', error);
+          }
+        );
+      }
+
+      // Function to load Google Calendar and apply event filter
+      function loadCalendar() {
+        // Get the calendar iframe
+        var calendarFrame = document.getElementById('calendar');
+
+        // Apply event filter when the filter selection changes
+        document.getElementById('filter').addEventListener('change', function() {
+          // Get the selected filter value
+          var filterValue = this.value;
+
+          // Construct the URL with the selected filter
+          var calendarUrl = 'https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID&ctz=UTC';
+          if (filterValue !== 'all') {
+            calendarUrl += '&ctext=' + filterValue;
           }
 
-          // Function to load Google Calendar and apply event filter
-          function loadCalendar() {
-            // Get the calendar iframe
-            var calendarFrame = document.getElementById('calendar');
+          // Set the iframe source to the updated URL
+          calendarFrame.src = calendarUrl;
+        });
+      }
 
-            // Apply event filter when the filter selection changes
-            document.getElementById('filter').addEventListener('change', function() {
-              // Get the selected filter value
-              var filterValue = this.value;
+      // Fetch data from Google Sheets and add events to Google Calendar
+      function fetchAndAddEvents() {
+        // Fetch data from Google Sheets
+        gapi.client.sheets.spreadsheets.values
+          .get({
+            spreadsheetId: 'Y1IdBQzqmOtk8wNKI3vcjtRXiFC7-kWGXbQ_jwgHYyuk8',
+            range: 'Sheet1!A2:D', // Assuming data starts from cell A2 and includes Title, Date, Time, and Tag columns
+          })
+          .then(
+            function(response) {
+              var range = response.result;
+              if (range.values.length > 0) {
+                for (var i = 0; i < range.values.length; i++) {
+                  var row = range.values[i];
+                  var title = row[0]; // Assuming the title is in the first column
+                  var date = new Date(row[1]); // Assuming date is in the second column
+                  var time = row[2]; // Assuming time is in the third column
+                  var tag = row[3]; // Assuming tag is in the fourth column
+                  
+                  // Format date and time according to Google Calendar API requirements
+                  var startTime = new Date(date.toDateString() + ' ' + time).toISOString();
+                  var endTime = new Date(date.toDateString() + ' ' + time).toISOString();
 
-              // Construct the URL with the selected filter
-              var calendarUrl = 'https://calendar.google.com/calendar/embed?src=613dad0bf9529b81b36affb49829dc35facd756d7dce6488ba47faaed16acce0@group.calendar.google.com
-      &ctz=UTC';
-              if (filterValue !== 'all') {
-                calendarUrl += '&ctext=' + filterValue;
+                  // Create event object
+                  var event = {
+                    summary: title,
+                    start: {
+                      dateTime: startTime,
+                    },
+                    end: {
+                      dateTime: endTime,
+                    },
+                    // Add any other properties such as description, location, etc.
+                  };
+
+                  // Add event to Google Calendar
+                  var request = gapi.client.calendar.events.insert({
+                    calendarId: 'primary', // Use 'primary' for the primary calendar of the authenticated user
+                    resource: event,
+                  });
+
+                  request.execute(function(event) {
+                    console.log('Event created: ' + event.htmlLink);
+                  });
+                }
+              } else {
+                console.log('No data found.');
               }
+            },
+            function(response) {
+              console.error('Error fetching data from Google Sheets: ' + response.result.error.message);
+            }
+          );
+      }
 
-              // Set the iframe source to the updated URL
-              calendarFrame.src = calendarUrl;
-            });
-          }
-
-          // Initialize Google Calendar API client library
-          gapi.load('client', initClient);
+      // Initialize Google Calendar API client library
+      gapi.load('client', initClient);
     </script>
   </body>
 </html>
+
+
+

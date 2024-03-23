@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Events to Google Sheets</title>
+</head>
+<body>
+  <h1>Add Events to Google Sheets</h1>
+  <form id="event-form">
+    <label for="title">Event Title:</label><br>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="date">Event Date(s) (separate multiple dates with commas):</label><br>
+    <input type="text" id="dates" name="dates" required><br><br>
+
+    <label for="time">Event Time:</label><br>
+    <input type="time" id="time" name="time" required><br><br>
+
+    <label for="tag">Event Tag:</label><br>
+    <input type="text" id="tag" name="tag" required><br><br>
+
+    <input type="submit" value="Add Event">
+  </form>
+
+  <script>
+    document.getElementById('event-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Collect form data
+      const formData = new FormData(event.target);
+      const title = formData.get('title');
+      const dates = formData.get('dates').split(',').map(date => date.trim()); // Split dates by comma and trim whitespace
+      const time = formData.get('time');
+      const tag = formData.get('tag');
+
+      // Iterate over each date and add to Google Sheets
+      dates.forEach(date => {
+        const eventData = {
+          title: title,
+          date: date,
+          time: time,
+          tag: tag
+        };
+
+        // Add event data to Google Sheets (you can use your own logic here)
+        addEventToGoogleSheets(eventData);
+      });
+
+      // Clear form fields after submission
+      event.target.reset();
+    });
+
+    function addEventToGoogleSheets(eventData) {
+      // You can add your logic to add event data to Google Sheets using Google Sheets API here
+      console.log('Adding event to Google Sheets:', eventData);
+      // Example: Send the data to a server endpoint which handles adding to Google Sheets
+    }
+  </script>
+</body>
+</html>
