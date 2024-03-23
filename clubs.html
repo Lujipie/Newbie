@@ -64,8 +64,9 @@ body, html {
     text-align: center;
     transition: transform 0.3s ease-in-out;
     width: calc(50% - 20px);
-      }
-
+      } 
+      
+      
 @media (min-width: 768px) {
     .club {
         width: calc(25% - 20px); /* Adjusted width for 4 club bubbles per row on larger screens */
@@ -110,15 +111,28 @@ body, html {
         
       }
       
+       .page-title {
+            text-align: center; /* Horizontally center the text */
+            position: absolute;
+            top: 0; /* Position at the top */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            font-size: 24px; /* Adjust font size as needed */
+            font-weight: bold;
+            color: #555; /* Choose a suitable color */
+            width: 100%; /* Take up full width */
+            padding: 20px 0; /* Add some vertical padding */
+        }
+      
     </style>
   </head>
   
    <body class="background">
     <header>
       <h1 style="color: #355E3B">Explore UTD Clubs</h1>
-      <!-- Fun color for heading -->
+     
       <p style="color: #777">Find your passion and get involved!</p>
-      <!-- Lighter text color for description -->
+
     </header>
 
     <main>
