@@ -37,5 +37,29 @@
         </fieldset>
     </form>
     <script src="contactform_Lab8.js"></script>
+
+||||||||
+<script>
+function submitToGoogleSheets() {
+  var name = document.getElementById("name").value;
+  
+  var formData = {
+    "name": name
+  };
+  
+  fetch('YOUR_WEB_APP_URL', {
+    method: 'POST',
+    mode: 'no-cors',
+    cache: 'no-cache',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => console.log('Data sent successfully'))
+  .catch(error => console.error('Error sending data:', error));
+}
+</script>
+
 </body>
 </html>
