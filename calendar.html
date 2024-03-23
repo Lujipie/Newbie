@@ -22,6 +22,7 @@
     margin-bottom: 20px;
     border-radius: 20px; /* Rounded corners */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    overflow: hidden; /* Hide overflowing events */
   }
 
   #event-filter {
@@ -35,6 +36,14 @@
     border: 2px solid #ff69b4; /* Pink border */
     background-color: #fff; /* White background */
     color: #ff69b4; /* Pink text color */
+  }
+
+  .event {
+    background-color: #ff69b4; /* Pink background color for events */
+    color: #fff; /* White text color */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px; /* Rounded corners */
   }
 </style>
 </head>
@@ -52,53 +61,58 @@
     </select>
   </div>
 
-  <!-- Google Calendar iframe -->
-  <iframe id="calendar" src="https://calendar.google.com/calendar/embed?src=613dad0bf9529b81b36affb49829dc35facd756d7dce6488ba47faaed16acce0@group.calendar.google.com
-" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+  <!-- Calendar container -->
+  <div id="calendar"></div>
 
-  <!-- Load Google Calendar API client library -->
+  <!-- Load Google Sheets API client library -->
   <script src="https://apis.google.com/js/api.js"></script>
 
   <script>
-    // Function to initialize Google Calendar API client library
+    // Function to initialize Google Sheets API client library
     function initClient() {
       gapi.client.init({
         'apiKey': 'YOUR_API_KEY',
-        'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
+        'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
       }).then(function() {
-        // Load calendar and apply event filter
-        loadCalendar();
+        // Load events from Google Sheets and populate the calendar
+        loadEvents();
       }, function(error) {
-        console.error('Error initializing Google Calendar API:', error);
+        console.error('Error initializing Google Sheets API:', error);
       });
     }
 
-    // Function to load Google Calendar and apply event filter
-    function loadCalendar() {
-      // Get the calendar iframe
-      var calendarFrame = document.getElementById('calendar');
-
-      // Apply event filter when the filter selection changes
-      document.getElementById('filter').addEventListener('change', function() {
-        // Get the selected filter value
-        var filterValue = this.value;
-
-        // Construct the URL with the selected filter
-        var calendarUrl = 'https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID&ctz=UTC';
-        if (filterValue !== 'all') {
-          calendarUrl += '&ctext=' + filterValue;
+    // Function to load events from Google Sheets and populate the calendar
+    function loadEvents() {
+      // Fetch data from Google Sheets
+      gapi.client.sheets.spreadsheets.values.get({
+        spreadsheetId: 'YOUR_SPREADSHEET_ID',
+        range: 'Sheet1!A2:D' // Assuming your events are in columns A to D starting from row 2
+      }).then(function(response) {
+        var events = response.result.values;
+        if (events.length > 0) {
+          // Populate calendar with events
+          populateCalendar(events);
+        } else {
+          console.log('No events found.');
         }
-
-        // Set the iframe source to the updated URL
-        calendarFrame.src = calendarUrl;
+      }, function(error) {
+        console.error('Error fetching events from Google Sheets:', error);
       });
     }
 
-    // Initialize Google Calendar API client library
+    // Function to populate calendar with events
+    function populateCalendar(events) {
+      var calendar = document.getElementById('calendar');
+      events.forEach(function(event) {
+        var eventElement = document.createElement('div');
+        eventElement.classList.add('event');
+        eventElement.textContent = event[0] + ': ' + event[1] + ' - ' + event[2];
+        calendar.appendChild(eventElement);
+      });
+    }
+
+    // Initialize Google Sheets API client library
     gapi.load('client', initClient);
   </script>
 </body>
 </html>
-
-
-
