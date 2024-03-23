@@ -4,57 +4,81 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Google Calendar Integration</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+
+  #calendar {
+    width: 100%;
+    height: 600px; /* Adjust the height as needed */
+    margin-bottom: 20px;
+  }
+
+  #event-filter {
+    margin-bottom: 20px;
+  }
+</style>
 </head>
 <body>
   <h1>Google Calendar Integration</h1>
 
-  <!-- Container to display events -->
-  <div id="events"></div>
+  <!-- Filter tab for events -->
+  <div id="event-filter">
+    <label for="filter">Filter by Event Type:</label>
+    <select id="filter">
+      <option value="all">All</option>
+      <option value="event1">Event Type 1</option>
+      <option value="event2">Event Type 2</option>
+      <option value="event3">Event Type 3</option>
+    </select>
+  </div>
+
+  <!-- Google Calendar iframe -->
+  <iframe id="calendar" src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID_HERE" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
   <!-- Load Google Calendar API client library -->
   <script src="https://apis.google.com/js/api.js"></script>
 
   <script>
-    // Function to load Google Calendar API client library
-    function loadClient() {
-      gapi.client.load('calendar', 'v3', listUpcomingEvents);
+    // Function to initialize Google Calendar API client library
+    function initClient() {
+      gapi.client.init({
+        'apiKey': 'AIzaSyA8sPKwDNUWTAKAygbCkvqtXsIsN6Fneqw',
+        'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
+      }).then(function() {
+        // Load calendar and apply event filter
+        loadCalendar();
+      }, function(error) {
+        console.error('Error initializing Google Calendar API:', error);
+      });
     }
 
-    // Function to list upcoming events
-    function listUpcomingEvents() {
-      var request = gapi.client.calendar.events.list({
-        'calendarId': 'primary',
-        'timeMin': (new Date()).toISOString(),
-        'showDeleted': false,
-        'singleEvents': true,
-        'orderBy': 'startTime'
-      });
+    // Function to load Google Calendar and apply event filter
+    function loadCalendar() {
+      // Get the calendar iframe
+      var calendarFrame = document.getElementById('calendar');
 
-      request.execute(function(response) {
-        var events = response.items;
-        var eventList = document.getElementById('events');
-        if (events.length > 0) {
-          eventList.innerHTML = '<h2>Upcoming Events:</h2>';
-          for (var i = 0; i < events.length; i++) {
-            var event = events[i];
-            var eventDetails = '<p><strong>' + event.summary + '</strong><br>';
-            if (event.start.dateTime) {
-              eventDetails += 'Start: ' + event.start.dateTime + '<br>';
-            }
-            if (event.end.dateTime) {
-              eventDetails += 'End: ' + event.end.dateTime + '<br>';
-            }
-            eventDetails += '</p>';
-            eventList.innerHTML += eventDetails;
-          }
-        } else {
-          eventList.innerHTML = '<p>No upcoming events found.</p>';
+      // Apply event filter when the filter selection changes
+      document.getElementById('filter').addEventListener('change', function() {
+        // Get the selected filter value
+        var filterValue = this.value;
+
+        // Construct the URL with the selected filter
+        var calendarUrl = 'https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID_HERE&ctz=UTC';
+        if (filterValue !== 'all') {
+          calendarUrl += '&ctext=' + filterValue;
         }
+
+        // Set the iframe source to the updated URL
+        calendarFrame.src = calendarUrl;
       });
     }
 
     // Initialize Google Calendar API client library
-    gapi.load('client', loadClient);
+    gapi.load('client', initClient);
   </script>
 </body>
 </html>
