@@ -1,67 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UTD Freshmen Hub</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js"></script>
+
     <style>
-        body {
-            background-image: url('https://alumni.utdallas.edu/image/-wallpaper/UTD-Mall-1920.jpg');
-            background-size: cover;
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        
-        .container {
-            text-align: center;
-            color: white;
-        }
+      body {
+        background-image: url("https://alumni.utdallas.edu/image/-wallpaper/UTD-Mall-1920.jpg");
+        background-size: cover;
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
 
-        button {
-            padding: 15px 30px;
-            margin: 10px;
-            font-size: 18px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            background-color: #9013fe; /* Purple button color */
-            color: white;
-            transition: background-color 0.3s, transform 0.2s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+      .container {
+        text-align: center;
+        color: white;
+      }
 
-        button:hover {
-            background-color: #6600cc; /* Darker purple on hover */
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
+      button {
+        padding: 15px 30px;
+        margin: 10px;
+        font-size: 18px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        background-color: #9013fe; /* Purple button color */
+        color: white;
+        transition: background-color 0.3s, transform 0.2s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
 
-        button:active {
-            transform: scale(0.95);
-        }
-        h2 {
-          font-size: 15px;
-        }
+      button:hover {
+        background-color: #6600cc; /* Darker purple on hover */
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      button:active {
+        transform: scale(0.95);
+      }
+      h2 {
+        font-size: 15px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Welcome UTD Freshmen!</h1>
-        <h2>We're thrilled to have you here. Whether you're feeling excited, nervous, or somewhere in between, know that you've found a supportive community dedicated to 
-          helping you navigate your freshman journey with confidence and ease.</h2>
-        <a href="clubs.html"><button>Explore Clubs</button></a>
-        <a href="calendar.html"><button>View Calendar</button></a>
-        <a href="addclubs.html"><button>Add Your Clubs!</button></a>
-        <button style="background-color: #f28c28;">Add Your Club</button>
-        <button style="background-color: #f2b705;">Have Questions?</button>
-        <button style="background-color: #3b78e7;">Connect with Mentors</button>
+      <h1>Welcome UTD Freshmen!</h1>
+      <h2>
+        We're thrilled to have you here. Whether you're feeling excited,
+        nervous, or somewhere in between, know that you've found a supportive
+        community dedicated to helping you navigate your freshman journey with
+        confidence and ease.
+      </h2>
+      <a href="clubs.html"><button>Explore Clubs</button></a>
+      <a href="calendar.html"><button>View Calendar</button></a>
+      <a href="addclubs.html"><button>Add Your Clubs!</button></a>
+      <button style="background-color: #f28c28">Add Your Club</button>
+      <button style="background-color: #f2b705">Have Questions?</button>
+      <button style="background-color: #3b78e7">Connect with Mentors</button>
     </div>
-</body>
+   
+    <script src="script.js"></script>
+    <script>
+      console.log("Script loaded");
+      
+      const welcomeText = "Welcome UTD Freshman!";
+      const welcomeDiv = document.getElementById("welcome-text");
+
+      function typeWriter(text, i) {
+        if (i < text.length) {
+          welcomeDiv.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(function () {
+            typeWriter(text, i);
+          }, 100); // Adjust the typing speed (milliseconds)
+        }
+      }
+
+      typeWriter(welcomeText, 0);
+    </script>
+  </body>
 </html>
