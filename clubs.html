@@ -1,26 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UTD Clubs</title>
-    <style>
-        /* Add CSS styles here */
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UTD Clubs</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Add any additional styles or scripts here -->
+  <style>
+    /* Additional styles specific to the Clubs page */
+    .club-listings {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    .club {
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+      width: 300px;
+    }
+    
+    .club:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .club img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .club h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    
+    .club p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    
+    .club a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #9013fe;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    
+    .club a:hover {
+      background-color: #6600cc;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <!-- Add header content here -->
-    </header>
+  <header>
+    <h1>Explore UTD Clubs</h1>
+    <p>Find your passion and get involved!</p>
+  </header>
 
-    <main>
-        <h1>UTD Clubs</h1>
-        <p>Welcome to the UTD Clubs page!</p>
-        <!-- Add club listings or other content here -->
-    </main>
+  <main>
+    <section class="club-listings">
+      <div class="club">
+        <img src="club1.jpg" alt="Club 1">
+        <h2>Club 1</h2>
+        <p>Description of Club 1.</p>
+        <a href="#">Learn More</a>
+      </div>
+      <!-- Repeat similar structure for other clubs -->
+    </section>
+  </main>
 
-    <footer>
-        <!-- Add footer content here -->
-    </footer>
+  <footer>
+    <p>&copy; 2024 UTD Freshmen Hub</p>
+  </footer>
 </body>
 </html>

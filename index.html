@@ -1,56 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTD Freshmen Hub</title>
     <link rel="stylesheet" href="styles.css">
-  <head>
     <style>
-      body {
-        background-image: url('https://alumni.utdallas.edu/image/-wallpaper/UTD-Mall-1920.jpg');
-        background-size: cover;
-        font-family: 'Montserrat', sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-      
-      .container {
-        text-align: center;
-        color: white;
-      }
+        body {
+            background-image: url('https://alumni.utdallas.edu/image/-wallpaper/UTD-Mall-1920.jpg');
+            background-size: cover;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            text-align: center;
+            color: white;
+        }
 
-      button {
-        padding: 10px 20px;
-        margin: 10px;
-        font-size: 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        background-color: #F28C28; /* Purple button color */
-        color: white;
-        transition: background-color 0.3s;
-      }
+        button {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            background-color: #9013fe; /* Purple button color */
+            color: white;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-      button:hover {
-        background-color: #355E3B; /* Darker purple on hover */
-      }
-      
+        button:hover {
+            background-color: #6600cc; /* Darker purple on hover */
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div class="container">
-      <h1>Welcome to UTD Club Central!</h1>
-      <a href="clubs.html"><button>Clubs</button></a>
-      <a href="calendar.html"><button>Calendar</button></a>
-      <button>Add Your Club Here</button>
-      <button>Questions</button>
-      <button>Mentors</button>
+        <h1>Welcome to UTD Club Central!</h1>
+        <a href="clubs.html"><button>Explore Clubs</button></a>
+        <a href="calendar.html"><button>View Calendar</button></a>
+        <button style="background-color: #f28c28;">Add Your Club</button>
+        <button style="background-color: #f2b705;">Have Questions?</button>
+        <button style="background-color: #3b78e7;">Connect with Mentors</button>
     </div>
-  </body>
-
+</body>
 </html>
