@@ -82,6 +82,24 @@
       .back-to-main:hover {
         background-color: #b87333; /* Darker button color on hover */
       }
+    /* Button styling */
+    .refresh-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .refresh-button:hover {
+      background-color: #0056b3;
+    }
     </style>
     <!-- Include the Google Apps Script library -->
     <script src="https://script.google.com/macros/s/AKfycbxyPi6zdfIRt63uBW55Tq-VF-kCmTxkXfxmOtMlYYl9tOskqBWbuuYExqEzvXh7I-n2/exec"></script>
@@ -159,11 +177,11 @@
       scrolling="no"
     ></iframe>
 
-  <button onclick="refreshEvents()">Refresh</button>
+  <button class="refresh-button" onclick="refreshEvents()">Refresh Events</button>
 
   <script>
     function refreshEvents() {
-      var url = "https://script.google.com/macros/s/AKfycbwN4j36I6z_L4TgOq6R-8wI8xud8AB4CgYbZZEX/exec?action=createEventsFromSheet";
+      var url = "https://script.google.com/macros/s/AKfycbxyPi6zdfIRt63uBW55Tq-VF-kCmTxkXfxmOtMlYYl9tOskqBWbuuYExqEzvXh7I-n2/exec?action=createEventsFromSheet";
       fetch(url)
         .then(response => {
           if (!response.ok) {
