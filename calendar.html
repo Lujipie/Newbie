@@ -56,22 +56,22 @@
   <iframe id="calendar" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&bgcolor=%23be6c08&showTitle=0&showPrint=0&showTz=0&showCalendars=0&src=NjEzZGFkMGJmOTUyOWI4MWIzNmFmZmI0OTgyOWRjMzVmYWNkNzU2ZDdkY2U2NDg4YmE0N2ZhYWVkMTZhY2NlMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23AD1457" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
   <!-- Button to trigger adding events from Google Sheets to Google Calendar -->
-  <button onclick="addEventsToCalendar()">Add Events to Calendar</button>
+  <button onclick="addEventsToCalendar()">Refresh</button>
 
   <script>
     // Function to trigger Google Apps Script function
     function addEventsToCalendar() {
-      google.script.run.addEventsFromSheetToCalendar();
+      google.script.run.addEventsFromSheetToCalendar('613dad0bf9529b81b36affb49829dc35facd756d7dce6488ba47faaed16acce0@group.calendar.google.com');
     }
   </script>
 
   <!-- Load Google Apps Script -->
-  <script src="https://apis.google.com/js/api.js"></script>
+  <script src="https://script.google.com/macros/s/AKfycbxyPi6zdfIRt63uBW55Tq-VF-kCmTxkXfxmOtMlYYl9tOskqBWbuuYExqEzvXh7I-n2/exec"></script>
   <script>
     // Load Google Calendar API client library
     function initClient() {
       gapi.client.init({
-        apiKey: 'YOUR_API_KEY',
+        apiKey: 'AIzaSyA8sPKwDNUWTAKAygbCkvqtXsIsN6Fneqw',
         discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
       }).then(
         function() {
@@ -96,7 +96,7 @@
         var filterValue = this.value;
 
         // Construct the URL with the selected filter
-        var calendarUrl = 'https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID&ctz=UTC';
+        var calendarUrl = 'https://calendar.google.com/calendar/embed?src=613dad0bf9529b81b36affb49829dc35facd756d7dce6488ba47faaed16acce0@group.calendar.google.com&ctz=UTC';
         if (filterValue !== 'all') {
           calendarUrl += '&ctext=' + filterValue;
         }
@@ -111,8 +111,6 @@
   </script>
 </body>
 </html>
-
-
 
 
 
