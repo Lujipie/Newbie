@@ -85,30 +85,32 @@
   </form>
 
   <script>
-    document.getElementById('eventForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent default form submission
+  document.getElementById('eventForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
 
-      // Get form data
-      const formData = new FormData(this);
+    // Get form data
+    const title = document.getElementById('title').value;
+    const date = document.getElementById('date').value;
+    const startTime = document.getElementById('startTime').value;
+    const endTime = document.getElementById('endTime').value;
+    const tag = document.getElementById('tag').value;
 
-      // Send form data to Google Apps Script
-      fetch('https://script.google.com/macros/s/AKfycbzhywBz4yX1levpdM_fCU1-_0dhw41NOuN0oI5-4AQyI01QGuy7zjANy1_qlBRicgfZbA/exec', {
-        method: 'POST',
-        body: formData
-      }).then(response => {
-        if (response.ok) {
-          alert('Form data submitted successfully!');
-          // Optional: Clear the form fields after submission
-          this.reset();
-        } else {
-          alert('Error submitting form data!');
-        }
-      }).catch(error => {
-        console.error('Error:', error);
-        alert('Error submitting form data!');
-      });
-    });
-  </script>
+    // Construct the data object
+    const eventData = {
+      title: title,
+      date: date,
+      startTime: startTime,
+      endTime: endTime,
+      tag: tag
+    };
+
+    // Send the data to Google Apps Script
+    google.script.run.doPost(eventData);
+
+    // Optional: Clear the form fields after submission
+    this.reset();
+  });
+</script>
 </body>
 </html>
 
