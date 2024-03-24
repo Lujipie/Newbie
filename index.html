@@ -7,12 +7,18 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js"></script>
 
-    <style>html, body {
-            height: 100%;
-            overflow: hidden;
-            background-image: radial-gradient(ellipse at top, #080e21 0%, #1b2735 95%);
-        }
-    .star {
+    <style>
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+        background-image: radial-gradient(
+          ellipse at top,
+          #080e21 0%,
+          #1b2735 95%
+        );
+      }
+      .star {
         position: absolute;
         width: 1px;
         height: 1px;
@@ -20,106 +26,217 @@
         /* Set the box-shadow to position the stars */
         /* You can adjust these values to position the stars */
         /* Each pair of values represents the X and Y coordinates of a star */
-        box-shadow: 
-            100px 200px, 300px 400px, 500px 100px, 700px 500px, 900px 300px, 1100px 200px,
-            1200px 600px, 1400px 400px, 1600px 300px, 1800px 500px, 2000px 200px, 2200px 100px,
-            2400px 600px, 2600px 300px, 2800px 400px, 3000px 200px, 3200px 500px, 3400px 100px,
-            3600px 600px, 3800px 300px, 4000px 400px, 4200px 200px, 4400px 500px, 4600px 100px,
-            4800px 600px, 5000px 300px,
-            5200px 100px, 5400px 400px, 5600px 200px, 5800px 500px, 6000px 300px, 6200px 100px,
-            6400px 600px, 6600px 400px, 6800px 300px, 7000px 200px, 7200px 500px, 7400px 100px,
-            7600px 600px, 7800px 400px, 8000px 300px, 8200px 200px, 8400px 500px, 8600px 100px,
-            8800px 600px, 9000px 300px, 9200px 400px, 9400px 200px, 9600px 500px, 9800px 100px,
-            5500px 350px, 5600px 450px, 5700px 250px, 5800px 350px, 5900px 150px, 6000px 400px, 6100px 300px, 6200px 500px, 6300px 200px, 6400p
-    }
+        box-shadow: 100px 200px, 300px 400px, 500px 100px, 700px 500px,
+          900px 300px, 1100px 200px, 1200px 600px, 1400px 400px, 1600px 300px,
+          1800px 500px, 2000px 200px, 2200px 100px, 2400px 600px, 2600px 300px,
+          2800px 400px, 3000px 200px, 3200px 500px, 3400px 100px, 3600px 600px,
+          3800px 300px, 4000px 400px, 4200px 200px, 4400px 500px, 4600px 100px,
+          4800px 600px, 5000px 300px, 5200px 100px, 5400px 400px, 5600px 200px,
+          5800px 500px, 6000px 300px, 6200px 100px, 6400px 600px, 6600px 400px,
+          6800px 300px, 7000px 200px, 7200px 500px, 7400px 100px, 7600px 600px,
+          7800px 400px, 8000px 300px, 8200px 200px, 8400px 500px, 8600px 100px,
+          8800px 600px, 9000px 300px, 9200px 400px, 9400px 200px, 9600px 500px,
+          9800px 100px, 5500px 350px, 5600px 450px, 5700px 250px, 5800px 350px,
+          5900px 150px, 6000px 400px, 6100px 300px, 6200px 500px, 6300px 200px,
+          6400p;
+      }
 
-        /* Meteor animation */
+      /* Meteor animation */
       @keyframes meteor {
-            0% {
-                opacity: 0;
-                margin-top: -300px;
-                margin-right: -300px;
-            }
-          10%{
-               opacity:1;           
-          }
-            12% {
-                opacity: 0;
-            }
-            15% {
-                margin-top: 300px;
-                margin-left: -600px;
-                opacity: 0;
-            }
-            100% {
-                opacity: 0;
-            }
+        0% {
+          opacity: 0;
+          margin-top: -300px;
+          margin-right: -300px;
         }
-
-        /* Meteor elements */
-        .meteor-1, .meteor-2, .meteor-3, .meteor-4, .meteor-5,
-        .meteor-6, .meteor-7, .meteor-8, .meteor-9, .meteor-10,
-        .meteor-11, .meteor-12, .meteor-13, .meteor-14, .meteor-15 {
-            position: absolute;
-            width: 300px;
-            height: 1px;
-            transform: rotate(-45deg);
-            background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
-            animation: meteor 4s linear infinite;
-            opacity: 0;
+        10% {
+          opacity: 1;
         }
-
-        .meteor-1:before, .meteor-2:before, .meteor-3:before,
-        .meteor-4:before, .meteor-5:before, .meteor-6:before,
-        .meteor-7:before, .meteor-8:before, .meteor-9:before,
-        .meteor-10:before, .meteor-11:before, .meteor-12:before,
-        .meteor-13:before, .meteor-14:before, .meteor-15:before {
-            content: "";
-            position: absolute;
-            width: 4px;
-            height: 5px;
-            border-radius: 50%;
-            margin-top: -2px;
-            background: rgba(255, 255, 255, 0.7);
-            box-shadow: 0 0 15px 3px #fff;
+        12% {
+          opacity: 0;
         }
-.meteor-1 { animation: meteor 5s linear infinite; } /* Slower */
-.meteor-2 { animation: meteor 7s linear infinite; } /* Normal speed (same as before) */
-.meteor-3 { animation: meteor 4s linear infinite; } /* Faster */
-.meteor-4 { animation: meteor 5s linear infinite; }      
- .meteor-5 { animation: meteor 8s linear infinite; }     
- .meteor-6 { animation: meteor 5s linear infinite; }     
-  .meteor-7 { animation: meteor 9s linear infinite; }   
-      .meteor-8 { animation: meteor 6s linear infinite; } 
-      .meteor-9 { animation: meteor 3s linear infinite; } 
-      .meteor-10 { animation: meteor 7s linear infinite; } 
-      .meteor-11 { animation: meteor 6s linear infinite; } 
-      .meteor-12 { animation: meteor 5s linear infinite; } 
-      .meteor-13 { animation: meteor 8s linear infinite; } 
-      
-/* ... Adjust animation durations for other meteors ... */
+        15% {
+          margin-top: 300px;
+          margin-left: -600px;
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
 
+      /* Meteor elements */
+      .meteor-1,
+      .meteor-2,
+      .meteor-3,
+      .meteor-4,
+      .meteor-5,
+      .meteor-6,
+      .meteor-7,
+      .meteor-8,
+      .meteor-9,
+      .meteor-10,
+      .meteor-11,
+      .meteor-12,
+      .meteor-13,
+      .meteor-14,
+      .meteor-15 {
+        position: absolute;
+        width: 300px;
+        height: 1px;
+        transform: rotate(-45deg);
+        background-image: linear-gradient(
+          to right,
+          #fff,
+          rgba(255, 255, 255, 0)
+        );
+        animation: meteor 4s linear infinite;
+        opacity: 0;
+      }
 
+      .meteor-1:before,
+      .meteor-2:before,
+      .meteor-3:before,
+      .meteor-4:before,
+      .meteor-5:before,
+      .meteor-6:before,
+      .meteor-7:before,
+      .meteor-8:before,
+      .meteor-9:before,
+      .meteor-10:before,
+      .meteor-11:before,
+      .meteor-12:before,
+      .meteor-13:before,
+      .meteor-14:before,
+      .meteor-15:before {
+        content: "";
+        position: absolute;
+        width: 4px;
+        height: 5px;
+        border-radius: 50%;
+        margin-top: -2px;
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 0 15px 3px #fff;
+      }
+      .meteor-1 {
+        animation: meteor 5s linear infinite;
+      } /* Slower */
+      .meteor-2 {
+        animation: meteor 7s linear infinite;
+      } /* Normal speed (same as before) */
+      .meteor-3 {
+        animation: meteor 4s linear infinite;
+      } /* Faster */
+      .meteor-4 {
+        animation: meteor 5s linear infinite;
+      }
+      .meteor-5 {
+        animation: meteor 8s linear infinite;
+      }
+      .meteor-6 {
+        animation: meteor 5s linear infinite;
+      }
+      .meteor-7 {
+        animation: meteor 9s linear infinite;
+      }
+      .meteor-8 {
+        animation: meteor 6s linear infinite;
+      }
+      .meteor-9 {
+        animation: meteor 3s linear infinite;
+      }
+      .meteor-10 {
+        animation: meteor 7s linear infinite;
+      }
+      .meteor-11 {
+        animation: meteor 6s linear infinite;
+      }
+      .meteor-12 {
+        animation: meteor 5s linear infinite;
+      }
+      .meteor-13 {
+        animation: meteor 8s linear infinite;
+      }
 
-        /* Adjust meteor positions */
-        .meteor-1 { top: 50px; left: 10%; animation-delay: 5s; }
-        .meteor-2 { top: 120px; left: 20%; animation-delay: 3s;}
-        .meteor-3 { top: 200px; left: 30%; animation-delay: 7s;}
-        .meteor-4 { top: 300px; left: 40%; animation-delay: 2s;}
-        .meteor-5 { top: 400px; left: 50%; animation-delay: 6s;}
-        .meteor-6 { top: 500px; left: 60%; animation-delay: 4s}
-        .meteor-7 { top: 600px; left: 70%; animation-delay: 3s}
-        .meteor-8 { top: 700px; left: 80%; animation-delay: 0s}
-        .meteor-9 { top: 800px; left: 90%; animation-delay: 5s}
-        .meteor-10 { top: 900px; left: 100%; animation-delay: 2s }
-        .meteor-11 { top: 1000px; left: 110%; animation-delay: 3s}
-        .meteor-12 { top: 1100px; left: 120%; animation-delay: 7s}
-        .meteor-13 { top: 1200px; left: 130%; animation-delay: 5s}
-        .meteor-14 { top: 1300px; left: 140%; animation-delay: 4s}
-        .meteor-15 { top: 1400px; left: 150%; animation-delay: 1s}
-      
-        </style>
-    
+      /* ... Adjust animation durations for other meteors ... */
+
+      /* Adjust meteor positions */
+      .meteor-1 {
+        top: 50px;
+        left: 10%;
+        animation-delay: 5s;
+      }
+      .meteor-2 {
+        top: 120px;
+        left: 20%;
+        animation-delay: 3s;
+      }
+      .meteor-3 {
+        top: 200px;
+        left: 30%;
+        animation-delay: 7s;
+      }
+      .meteor-4 {
+        top: 300px;
+        left: 40%;
+        animation-delay: 2s;
+      }
+      .meteor-5 {
+        top: 400px;
+        left: 50%;
+        animation-delay: 6s;
+      }
+      .meteor-6 {
+        top: 500px;
+        left: 60%;
+        animation-delay: 4s;
+      }
+      .meteor-7 {
+        top: 600px;
+        left: 70%;
+        animation-delay: 3s;
+      }
+      .meteor-8 {
+        top: 700px;
+        left: 80%;
+        animation-delay: 0s;
+      }
+      .meteor-9 {
+        top: 800px;
+        left: 90%;
+        animation-delay: 5s;
+      }
+      .meteor-10 {
+        top: 900px;
+        left: 100%;
+        animation-delay: 2s;
+      }
+      .meteor-11 {
+        top: 1000px;
+        left: 110%;
+        animation-delay: 3s;
+      }
+      .meteor-12 {
+        top: 1100px;
+        left: 120%;
+        animation-delay: 7s;
+      }
+      .meteor-13 {
+        top: 1200px;
+        left: 130%;
+        animation-delay: 5s;
+      }
+      .meteor-14 {
+        top: 1300px;
+        left: 140%;
+        animation-delay: 4s;
+      }
+      .meteor-15 {
+        top: 1400px;
+        left: 150%;
+        animation-delay: 1s;
+      }
+    </style>
+
     <style>
       body {
         background-size: cover;
@@ -144,78 +261,76 @@
         border: none;
         border-radius: 30px;
         cursor: pointer;
-        background-color: #F28C28; /* orange button color */
+        background-color: #b7c9e2; /* orange button color */
         color: white;
-        transition: background-color 0.3s, transform 0.2s;
+        transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; /* Added box-shadow transition */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
       button:hover {
-        background-color: #CC5500; /* Darker orange on hover */
+        background-color: #cdd9eb; /* Darker orange on hover */
         transform: scale(1.05);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 0 10px 10px white; /* Added white glowing border */
       }
 
       button:active {
         transform: scale(0.95);
       }
+
       h2 {
         font-size: 15px;
       }
     </style>
   </head>
-  
-<body>
+
+  <body>
     <!-- Meteor shower background elements -->
     <div class="star"></div>
     <div class="meteor-1"></div>
-  <div class="meteor-2"></div>
-<div class="meteor-3"></div>
-<div class="meteor-4"></div>
-<div class="meteor-5"></div>
-<div class="meteor-6"></div>
-<div class="meteor-7"></div>
-<div class="meteor-8"></div>
-<div class="meteor-9"></div>
-<div class="meteor-10"></div>
-<div class="meteor-11"></div>
-<div class="meteor-12"></div>
-<div class="meteor-13"></div>
-<div class="meteor-14"></div>
-<div class="meteor-15"></div>
-  
-  
-  <script>
-        // Dynamically generate stars with random positions
-        for (let i = 0; i < 50; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.top = `${Math.random() * window.innerHeight}px`;
-            star.style.left = `${Math.random() * window.innerWidth}px`;
-            document.body.appendChild(star);
-        }
-    </script>
-  <div class="meteor-1"></div>
-<div class="meteor-2"></div>
-  <div class="meteor-3"></div>
-  <div class="meteor-4"></div>
-  <div class="meteor-5"></div>
-  <div class="meteor-6"></div>
-  <div class="meteor-7"></div>
-  <div class="meteor-8"></div>
-  <div class="meteor-9"></div>
-  <div class="meteor-10"></div>
-  <div class="meteor-11"></div>
-  <div class="meteor-12"></div>
-  <div class="meteor-13"></div>
-  <div class="meteor-14"></div>
-  <div class="meteor-15"></div>
+    <div class="meteor-2"></div>
+    <div class="meteor-3"></div>
+    <div class="meteor-4"></div>
+    <div class="meteor-5"></div>
+    <div class="meteor-6"></div>
+    <div class="meteor-7"></div>
+    <div class="meteor-8"></div>
+    <div class="meteor-9"></div>
+    <div class="meteor-10"></div>
+    <div class="meteor-11"></div>
+    <div class="meteor-12"></div>
+    <div class="meteor-13"></div>
+    <div class="meteor-14"></div>
+    <div class="meteor-15"></div>
 
-</body>
-  
+    <script>
+      // Dynamically generate stars with random positions
+      for (let i = 0; i < 50; i++) {
+        const star = document.createElement("div");
+        star.className = "star";
+        star.style.top = `${Math.random() * window.innerHeight}px`;
+        star.style.left = `${Math.random() * window.innerWidth}px`;
+        document.body.appendChild(star);
+      }
+    </script>
+    <div class="meteor-1"></div>
+    <div class="meteor-2"></div>
+    <div class="meteor-3"></div>
+    <div class="meteor-4"></div>
+    <div class="meteor-5"></div>
+    <div class="meteor-6"></div>
+    <div class="meteor-7"></div>
+    <div class="meteor-8"></div>
+    <div class="meteor-9"></div>
+    <div class="meteor-10"></div>
+    <div class="meteor-11"></div>
+    <div class="meteor-12"></div>
+    <div class="meteor-13"></div>
+    <div class="meteor-14"></div>
+    <div class="meteor-15"></div>
+  </body>
+
   <body>
     <div class="container">
-  
       <h1 id="welcome-text"></h1>
 
       <h2>
@@ -226,43 +341,60 @@
       </h2>
       <a href="clubs.html"><button>Explore Clubs</button></a>
       <a href="calendar.html"><button>View Calendar</button></a>
-      <a href="https://forms.gle/FMTsBV5ovPkFFYZQ8"><button>Add Your Club to Our Database!</button></a>
+      <a href="https://forms.gle/FMTsBV5ovPkFFYZQ8"
+        ><button>Add Your Club to Our Database!</button></a
+      >
       <a href="form.html"><button>Add Your Events!</button></a>
       <a href="mentors.html"><button>Connect with Mentors</button></a>
       <!--<button style="background-color: #3b78e7">Connect with Mentors</button>-->
     </div>
-   
+
     <script src="script.js"></script>
     <script>
       console.log("Script loaded");
 
-const welcomeText = "Welcome UTD Freshman!";
-const welcomeDiv = document.getElementById("welcome-text");
+      const welcomeText = "Welcome UTD Freshman!";
+      const welcomeDiv = document.getElementById("welcome-text");
 
-function typeWriter(text, i) {
-  if (i < text.length) {
-    welcomeDiv.innerHTML += text.charAt(i);
-    i++;
-    setTimeout(function () {
-      typeWriter(text, i);
-    }, 100); // Adjust the typing speed (milliseconds)
-  }
-}
+      function typeWriter(text, i) {
+        if (i < text.length) {
+          welcomeDiv.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(function () {
+            typeWriter(text, i);
+          }, 100); // Adjust the typing speed (milliseconds)
+        }
+      }
 
-typeWriter(welcomeText, 0);
-
+      typeWriter(welcomeText, 0);
     </script>
     <!-- Start of ChatBot (www.chatbot.com) code -->
-<script type="text/javascript">
-    window.__be = window.__be || {};
-    window.__be.id = "65ff8ab4b17715000725b593";
-    (function() {
-        var be = document.createElement('script'); be.type = 'text/javascript'; be.async = true;
-        be.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.chatbot.com/widget/plugin.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(be, s);
-    })();
-</script>
-<noscript>You need to <a href="https://www.chatbot.com/help/chat-widget/enable-javascript-in-your-browser/" rel="noopener nofollow">enable JavaScript</a> in order to use the AI chatbot tool powered by <a href="https://www.chatbot.com/" rel="noopener nofollow" target="_blank">ChatBot</a></noscript>
-<!-- End of ChatBot code -->
+    <script type="text/javascript">
+      window.__be = window.__be || {};
+      window.__be.id = "65ff8ab4b17715000725b593";
+      (function () {
+        var be = document.createElement("script");
+        be.type = "text/javascript";
+        be.async = true;
+        be.src =
+          ("https:" == document.location.protocol ? "https://" : "http://") +
+          "cdn.chatbot.com/widget/plugin.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(be, s);
+      })();
+    </script>
+    <noscript
+      >You need to
+      <a
+        href="https://www.chatbot.com/help/chat-widget/enable-javascript-in-your-browser/"
+        rel="noopener nofollow"
+        >enable JavaScript</a
+      >
+      in order to use the AI chatbot tool powered by
+      <a href="https://www.chatbot.com/" rel="noopener nofollow" target="_blank"
+        >ChatBot</a
+      ></noscript
+    >
+    <!-- End of ChatBot code -->
   </body>
 </html>
