@@ -66,7 +66,7 @@
   <!menu>
     <div class="Computer Science"></div>
     <ul class="group">
-      <li class="active"><a href="main">Home</a></li>
+      <li class="active"><a href="#main">Home</a></li>
       <li><a href="#Computer Science">Computer Science</a></li>
       <li><a href="#Electrical Engineering">Engineering</a></li>
       <li><a href="#Computer Engineering">Computer Engineering</a></li>
@@ -86,7 +86,7 @@ ul{
 a{
 	text-decoration:none;
 }*/
-.main{
+#main{
 	padding:30px 50px;
 	position:relative;
 	width:100%;
@@ -97,6 +97,53 @@ a{
 	background-repeat: no-repeat;
 	background-image: url("../images/bg.png");
 	background-color: #edf1fd;
+}
+    nav{
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: 2px;
+	font-family: calibri;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width:100%;
+	box-sizing: border-box;
+	padding: 10px 50px;
+	background-color:#F4F7FF;
+	box-shadow:2px 2px 12px rgba(0,0,0,0.05); 
+	z-index: 1;
+}
+ 
+.menu{
+	display: flex;
+}
+.menu li a{
+	padding: 10px 15px;
+	color:#6c707c;
+	font-size: 12px;
+	
+}
+.lang{
+	color:#292929;
+}
+.mentors{
+	font-size: 25px;
+	font-weight: bold;
+	color:#292929;
+	font-family:Poppins;
+}
+.group{
+	display: none;
+}
+.active a,
+.menu li a:hover{
+	background-color:#292929;
+	color:#FFF!important;
+	font-weight: bold;
+	transition: all ease 0.4s;
 }
 </style>
 
