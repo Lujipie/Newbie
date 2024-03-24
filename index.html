@@ -56,7 +56,7 @@
             height: 1px;
             transform: rotate(-45deg);
             background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
-            animation: meteor 3s linear infinite;
+            animation: meteor 4s linear infinite;
         }
 
         .meteor-1:before, .meteor-2:before, .meteor-3:before,
@@ -73,11 +73,28 @@
             background: rgba(255, 255, 255, 0.7);
             box-shadow: 0 0 15px 3px #fff;
         }
+.meteor-1 { animation: meteor 5s linear infinite; } /* Slower */
+.meteor-2 { animation: meteor 7s linear infinite; } /* Normal speed (same as before) */
+.meteor-3 { animation: meteor 4s linear infinite; } /* Faster */
+.meteor-4 { animation: meteor 5s linear infinite; }      
+ .meteor-5 { animation: meteor 8s linear infinite; }     
+ .meteor-6 { animation: meteor 5s linear infinite; }     
+  .meteor-7 { animation: meteor 4s linear infinite; }   
+      .meteor-8 { animation: meteor 6s linear infinite; } 
+      .meteor-9 { animation: meteor 3s linear infinite; } 
+      .meteor-10 { animation: meteor 7s linear infinite; } 
+      .meteor-11 { animation: meteor 9s linear infinite; } 
+      .meteor-12 { animation: meteor 5s linear infinite; } 
+      .meteor-13 { animation: meteor 8s linear infinite; } 
+      
+/* ... Adjust animation durations for other meteors ... */
+
+
 
         /* Adjust meteor positions */
         .meteor-1 { top: 50px; left: 10%; animation-delay: 5s; }
         .meteor-2 { top: 120px; left: 20%; animation-delay: 3s;}
-        .meteor-3 { top: 200px; left: 30%; animation-delay: 0s;}
+        .meteor-3 { top: 200px; left: 30%; animation-delay: 7s;}
         .meteor-4 { top: 300px; left: 40%; animation-delay: 2s;}
         .meteor-5 { top: 400px; left: 50%; animation-delay: 6s;}
         .meteor-6 { top: 500px; left: 60%; animation-delay: 4s}
@@ -86,7 +103,7 @@
         .meteor-9 { top: 800px; left: 90%; animation-delay: 5s}
         .meteor-10 { top: 900px; left: 100%; animation-delay: 2s }
         .meteor-11 { top: 1000px; left: 110%; animation-delay: 3s}
-        .meteor-12 { top: 1100px; left: 120%; animation-delay: 2s}
+        .meteor-12 { top: 1100px; left: 120%; animation-delay: 7s}
         .meteor-13 { top: 1200px; left: 130%; animation-delay: 5s}
         .meteor-14 { top: 1300px; left: 140%; animation-delay: 4s}
         .meteor-15 { top: 1400px; left: 150%; animation-delay: 1s}
