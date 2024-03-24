@@ -7,46 +7,46 @@
     <!-- Add any additional styles or scripts here -->
     <style>
       /* Additional styles specific to the Clubs page */
-      
+
       body {
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
         background-color: #f7f7f7; /* Light background */
         color: #333; /* Dark text color */
-
       }
-body, html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
 
-.background {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    animation: backgroundFade 20s infinite alternate;
-    background-size: cover;
-    background-position: center;
-}
+      .background {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        animation: backgroundFade 20s infinite alternate;
+        background-size: cover;
+        background-position: center;
+      }
 
-@keyframes backgroundFade {
-    0% {
-        background-image: url('https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/a/1165/files/2022/08/Young-WISE-19-2000-1.jpg');
-    }
-    25% {
-        background-image: url('https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/f/1052/files/2023/03/hackutd17-students.webp');
-    }
-    50% {
-        background-image: url('https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/a/1165/files/2022/10/Wind-Comp-Team-43-2000.jpg');
-    }
-    75% {
-        background-image: url('https://engineering.stthomas.edu/_media-library/_images/ug-experience/1920x1080/engr-club-competitions-banner-alt.jpg');
-    }
-    100% {
-        background-image: url('https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/a/1165/files/2022/08/Young-WISE-19-2000-1.jpg');
-    }
-}
+      @keyframes backgroundFade {
+        0% {
+          background-image: url("https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/a/1165/files/2022/08/Young-WISE-19-2000-1.jpg");
+        }
+        25% {
+          background-image: url("https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/f/1052/files/2023/03/hackutd17-students.webp");
+        }
+        50% {
+          background-image: url("https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/a/1165/files/2022/10/Wind-Comp-Team-43-2000.jpg");
+        }
+        75% {
+          background-image: url("https://engineering.stthomas.edu/_media-library/_images/ug-experience/1920x1080/engr-club-competitions-banner-alt.jpg");
+        }
+        100% {
+          background-image: url("https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/a/1165/files/2022/08/Young-WISE-19-2000-1.jpg");
+        }
+      }
 
       .club-listings {
         display: flex;
@@ -57,21 +57,22 @@ body, html {
       }
 
       .club {
-        background-color: rgba(255, 255, 255, 0.8); 
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-    width: calc(50% - 20px);
-      } 
-      
-      
-@media (min-width: 768px) {
-    .club {
-        width: calc(25% - 20px); /* Adjusted width for 4 club bubbles per row on larger screens */
-    }
-}
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+        width: calc(50% - 20px);
+      }
+
+      @media (min-width: 768px) {
+        .club {
+          width: calc(
+            25% - 20px
+          ); /* Adjusted width for 4 club bubbles per row on larger screens */
+        }
+      }
 
       .club:hover {
         transform: translateY(-5px);
@@ -87,7 +88,7 @@ body, html {
       .club h2 {
         font-size: 24px;
         margin-bottom: 10px;
-        color: #355E3B; /* Fun color for club names */
+        color: #355e3b; /* Fun color for club names */
       }
 
       .club p {
@@ -99,7 +100,7 @@ body, html {
       .club a {
         display: inline-block;
         padding: 10px 20px;
-        background-color: #F28C28; /* Fun button color */
+        background-color: #f28c28; /* Fun button color */
         color: #fff; /* White text color for buttons */
         border-radius: 5px;
         text-decoration: none;
@@ -107,36 +108,35 @@ body, html {
       }
 
       .club a:hover {
-        background-color: #B87333; /* Darker button color on hover */
-        
+        background-color: #b87333; /* Darker button color on hover */
       }
-      
-       .page-title {
-            text-align: center; /* Horizontally center the text */
-            position: absolute;
-            top: -15%; /* Position at the top */
-            left: 50%;
-            transform: translateX(-50%); /* Center horizontally */
-            font-size: 30px; /* Adjust font size as needed */
-            font-weight: bold;
-            color: #355E3B	; /* Choose a suitable color */
-            width: 100%; /* Take up full width */
-            padding: 20px 0; /* Add some vertical padding */
-        }
-      
+
+      .page-title {
+        text-align: center; /* Horizontally center the text */
+        position: absolute;
+        top: -15%; /* Position at the top */
+        left: 50%;
+        transform: translateX(-50%); /* Center horizontally */
+        font-size: 30px; /* Adjust font size as needed */
+        font-weight: bold;
+        color: #355e3b; /* Choose a suitable color */
+        width: 100%; /* Take up full width */
+        padding: 20px 0; /* Add some vertical padding */
+      }
     </style>
   </head>
-  
-   <body class="background">
-    <header>
-     <div class="page-title">🚀 Explore UTD Clubs: Ignite Your Passion! 🌟</div>
 
+  <body class="background">
+    <header>
+      <div class="page-title">
+        🚀 Explore UTD Clubs: Ignite Your Passion! 🌟
+      </div>
     </header>
 
     <main>
       <section class="club-listings">
         <div class="club">
-          <h2> Association for Computing Machinery (ACM) </h2>
+          <h2>Association for Computing Machinery (ACM)</h2>
           <p>Description of ACM club.</p>
           <a href="https://acmutd.co/about.html">Learn More</a>
         </div>
@@ -153,12 +153,12 @@ body, html {
           <a href="https://www.aisutd.org/">Learn More</a>
         </div>
 
-        <div class="club">  
+        <div class="club">
           <h2>Makerspace</h2>
           <p>Description of Makerspace club.</p>
           <a href="https://utdmaker.space/">Learn More</a>
         </div>
-        
+
         <div class="club">
           <h2>The National Society of Black Engineers</h2>
           <p>Description of NSBE club.</p>
@@ -176,5 +176,26 @@ body, html {
     <footer>
       <p>&copy; 2024 UTD Freshmen Hub</p>
     </footer>
+    <a href="index.html" class="back-to-main">Back to Main Page</a>
+
+    <style>
+      /* Additional styles for the "Back to Main Page" button */
+      .back-to-main {
+        position: absolute;
+        top: -180px;
+        left: 20px;
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #f28c28; /* Fun button color */
+        color: #fff; /* White text color for buttons */
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .back-to-main:hover {
+        background-color: #b87333; /* Darker button color on hover */
+      }
+    </style>
   </body>
 </html>
