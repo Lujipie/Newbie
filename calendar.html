@@ -159,19 +159,27 @@
       scrolling="no"
     ></iframe>
 
-    <!-- Button to trigger adding events from Google Sheets to Google Calendar -->
-    <button id="refreshButton">Refresh</button>
+  <button onclick="refreshEvents()">Refresh</button>
 
-    <script>
-      // Function to call Google Apps Script function
-      function refreshCalendar() {
-        google.script.run.addEventsToCalendar();
-      }
-
-      // Attach event listener to the button
-      document
-        .getElementById("refreshButton")
-        .addEventListener("click", refreshCalendar);
-    </script>
+  <script>
+    function refreshEvents() {
+      var url = "https://script.google.com/macros/s/AKfycbxyPi6zdfIRt63uBW55Tq-VF-kCmTxkXfxmOtMlYYl9tOskqBWbuuYExqEzvXh7I-n2/exec";
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.text();
+        })
+        .then(data => {
+          console.log(data); // Log the response from the server
+          alert("Events created successfully."); // Show a message to the user
+        })
+        .catch(error => {
+          console.error("There was a problem with the fetch operation:", error);
+          alert("Failed to create events. Please try again later."); // Show an error message to the user
+        });
+    }
+  </script>
   </body>
 </html>
