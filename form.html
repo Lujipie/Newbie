@@ -34,7 +34,7 @@
     }
 
     input[type="text"],
-    input[type="time"],
+    input[type="datetime-local"],
     input[type="submit"] {
       width: 100%;
       padding: 10px;
@@ -63,14 +63,11 @@
     <label for="title">Event Title:</label><br>
     <input type="text" id="title" name="title" required><br>
 
-    <label for="dates">Event Date:</label><br>
-    <input type="date" id="dates" name="dates" required><br>
+    <label for="startDateTime">Start Date and Time:</label><br>
+    <input type="datetime-local" id="startDateTime" name="startDateTime" required><br>
 
-    <label for="startTime">Start Time:</label><br>
-    <input type="time" id="startTime" name="startTime" required><br>
-
-    <label for="endTime">End Time:</label><br>
-    <input type="time" id="endTime" name="endTime" required><br>
+    <label for="endDateTime">End Date and Time:</label><br>
+    <input type="datetime-local" id="endDateTime" name="endDateTime" required><br>
 
     <label for="tag">Club Tag:</label>
     <select id="tag" name="tag" required>
@@ -83,21 +80,19 @@
     <input type="submit" value="Add Event">
   </form>
 
- <script>
+  <script>
   document.getElementById('eventForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
 
     // Get form data
     const title = document.getElementById('title').value;
-    const date = document.getElementById('date').value;
-    const startTime = document.getElementById('startTime').value;
-    const endTime = document.getElementById('endTime').value;
+    const startTime = document.getElementById('startDateTime').value;
+    const endTime = document.getElementById('endDateTime').value;
     const tag = document.getElementById('tag').value;
 
     // Construct the data object
     const eventData = {
       title: title,
-      date: date,
       startTime: startTime,
       endTime: endTime,
       tag: tag
@@ -112,4 +107,3 @@
 </script>
 </body>
 </html>
-
