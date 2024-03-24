@@ -85,12 +85,12 @@
   </form>
 
   <script>
-  document.getElementById('eventForm').addEventListener('submit', function(event) {
+  document.getElementById('event-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
 
     // Get form data
     const title = document.getElementById('title').value;
-    const date = document.getElementById('date').value;
+    const date = document.getElementById('dates').value; // Corrected ID
     const startTime = document.getElementById('startTime').value;
     const endTime = document.getElementById('endTime').value;
     const tag = document.getElementById('tag').value;
@@ -109,7 +109,8 @@
 
     // Optional: Clear the form fields after submission
     this.reset();
-  });
+});
+
 </script>
 </body>
 </html>
