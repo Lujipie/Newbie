@@ -72,9 +72,9 @@
     <label for="tag">Club Tag:</label>
     <select id="tag" name="tag" required>
       <option value="" disabled selected>Select Tag</option>
-      <option value="option1">Computer Science</option>
-      <option value="option2">Electrical and Computer Engineering</option>
-      <option value="option3">Mechanical Engineering</option>
+      <option value="Computer Science">Computer Science</option>
+      <option value="Electrical and Computer Engineering">Electrical and Computer Engineering</option>
+      <option value="Mechanical Engineering">Mechanical Engineering</option>
     </select>
 
     <input type="submit" value="Add Event">
@@ -100,6 +100,8 @@
 
     // Send the data to Google Apps Script
     google.script.run.doPost(eventData);
+    
+          window.location.href = "index.html";
 
     // Optional: Clear the form fields after submission
     this.reset();
