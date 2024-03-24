@@ -56,14 +56,11 @@
   <iframe id="calendar" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&bgcolor=%23be6c08&showTitle=0&showPrint=0&showTz=0&showCalendars=0&src=NjEzZGFkMGJmOTUyOWI4MWIzNmFmZmI0OTgyOWRjMzVmYWNkNzU2ZDdkY2U2NDg4YmE0N2ZhYWVkMTZhY2NlMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23AD1457" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
   <!-- Button to trigger adding events from Google Sheets to Google Calendar -->
-  <button onclick="addEventsToCalendar()">Refresh</button>
+  <button onclick="google.script.run.addEventsToCalendar()">Refresh</button>
 
   <script>
-    // Function to trigger Google Apps Script function
-    function addEventsToCalendar() {
-      google.script.run.addEventsFromSheetToCalendar('613dad0bf9529b81b36affb49829dc35facd756d7dce6488ba47faaed16acce0@group.calendar.google.com');
-    }
-  </script>
+    // Google Apps Script function call
+    google.script.run.addEventsToCalendar();
 
   <!-- Load Google Apps Script -->
   <script src="https://script.google.com/macros/s/AKfycbxyPi6zdfIRt63uBW55Tq-VF-kCmTxkXfxmOtMlYYl9tOskqBWbuuYExqEzvXh7I-n2/exec"></script>
