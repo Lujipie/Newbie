@@ -87,11 +87,10 @@
 <script>
   document.getElementById('event-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
-    console.log('Form submitted'); // Test if the event listener is triggered
 
     // Get form data
     const title = document.getElementById('title').value;
-    const date = document.getElementById('dates').value;
+    const date = document.getElementById('date').value;
     const startTime = document.getElementById('startTime').value;
     const endTime = document.getElementById('endTime').value;
     const tag = document.getElementById('tag').value;
@@ -99,23 +98,19 @@
     // Construct the data object
     const eventData = {
       title: title,
-      dates: date, // Corrected field name
+      date: date,
       startTime: startTime,
       endTime: endTime,
       tag: tag
     };
 
     // Send the data to Google Apps Script
-    google.script.run.doPost(eventData, function(response) {
-      // Optional: Handle response from the server
-      console.log(response);
-    });
+    google.script.run.doPost(eventData);
 
     // Optional: Clear the form fields after submission
     this.reset();
   });
 </script>
-
 </body>
 </html>
 
