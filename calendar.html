@@ -163,7 +163,7 @@
 
   <script>
     function refreshEvents() {
-      var url = "https://script.google.com/macros/s/AKfycbxyPi6zdfIRt63uBW55Tq-VF-kCmTxkXfxmOtMlYYl9tOskqBWbuuYExqEzvXh7I-n2/exec";
+      var url = "https://script.google.com/macros/s/AKfycbwN4j36I6z_L4TgOq6R-8wI8xud8AB4CgYbZZEX/exec?action=createEventsFromSheet";
       fetch(url)
         .then(response => {
           if (!response.ok) {
@@ -173,7 +173,7 @@
         })
         .then(data => {
           console.log(data); // Log the response from the server
-          alert("Events created successfully."); // Show a message to the user
+          alert(data); // Show a message to the user
         })
         .catch(error => {
           console.error("There was a problem with the fetch operation:", error);
