@@ -12,20 +12,26 @@
             overflow: hidden;
             background-image: radial-gradient(ellipse at top, #080e21 0%, #1b2735 95%);
         }
-
-        /* Star effect */
-        .star {
-            width: 1px;
-            height: 1px;
-            background: transparent;
-            box-shadow: 100px 200px #fff,
-                        500px 300px #fff,
-                        800px 150px #fff,
-                        1200px 400px #fff,
-                        1500px 600px #fff,
-                        /* ... Add other star positions here ... */
-                        /* ... Continue adding star positions as needed ... */
-        }
+    .star {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        background: #fff;
+        /* Set the box-shadow to position the stars */
+        /* You can adjust these values to position the stars */
+        /* Each pair of values represents the X and Y coordinates of a star */
+        box-shadow: 
+            100px 200px, 300px 400px, 500px 100px, 700px 500px, 900px 300px, 1100px 200px,
+            1200px 600px, 1400px 400px, 1600px 300px, 1800px 500px, 2000px 200px, 2200px 100px,
+            2400px 600px, 2600px 300px, 2800px 400px, 3000px 200px, 3200px 500px, 3400px 100px,
+            3600px 600px, 3800px 300px, 4000px 400px, 4200px 200px, 4400px 500px, 4600px 100px,
+            4800px 600px, 5000px 300px,
+            5200px 100px, 5400px 400px, 5600px 200px, 5800px 500px, 6000px 300px, 6200px 100px,
+            6400px 600px, 6600px 400px, 6800px 300px, 7000px 200px, 7200px 500px, 7400px 100px,
+            7600px 600px, 7800px 400px, 8000px 300px, 8200px 200px, 8400px 500px, 8600px 100px,
+            8800px 600px, 9000px 300px, 9200px 400px, 9400px 200px, 9600px 500px, 9800px 100px,
+            5500px 350px, 5600px 450px, 5700px 250px, 5800px 350px, 5900px 150px, 6000px 400px, 6100px 300px, 6200px 500px, 6300px 200px, 6400p
+    }
 
         /* Meteor animation */
       @keyframes meteor {
@@ -111,6 +117,7 @@
         .meteor-13 { top: 1200px; left: 130%; animation-delay: 5s}
         .meteor-14 { top: 1300px; left: 140%; animation-delay: 4s}
         .meteor-15 { top: 1400px; left: 150%; animation-delay: 1s}
+      
         </style>
     
     <style>
@@ -141,17 +148,29 @@
         color: white;
         transition: background-color 0.3s, transform 0.2s;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        
       }
 
       button:hover {
         background-color: #CC5500; /* Darker orange on hover */
         transform: scale(1.05);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        animation: glow 1s infinite alternate;
       }
+ button:active {
+            transform: scale(0.95);
+        }
 
-      button:active {
-        transform: scale(0.95);
-      }
+        /* Glowing effect animation */
+        @keyframes glow {
+            from {
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            }
+            to {
+                box-shadow: 0 8px 16px rgba(255, 140, 40, 0.8);
+            }
+        }
+      
       h2 {
         font-size: 15px;
       }
