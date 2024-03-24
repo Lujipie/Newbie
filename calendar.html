@@ -37,6 +37,7 @@
     color: #ff69b4; /* Pink text color */
   }
 </style>
+<script src="https://script.google.com/macros/s/AKfycbxyPi6zdfIRt63uBW55Tq-VF-kCmTxkXfxmOtMlYYl9tOskqBWbuuYExqEzvXh7I-n2/exec"></script>
 </head>
 <body>
   <h1>Google Calendar Integration</h1>
@@ -69,12 +70,11 @@
   </script>
 
   <!-- Include the Google Apps Script library -->
-  <script src="https://www.google.com/script/appx-client.js"></script>
   <script>
     // Load Google Calendar API client library
     function initClient() {
       gapi.client.init({
-        apiKey: 'AIzaSyA8sPKwDNUWTAKAygbCkvqtXsIsN6Fneqw',
+        apiKey: 'AIzaSyA8sPKwDNUWTAKAygbCkvqtXsIsN6Fneqw', // Replace with your API key
         discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
       }).then(
         function() {
@@ -99,7 +99,7 @@
         var filterValue = this.value;
 
         // Construct the URL with the selected filter
-        var calendarUrl = 'https://calendar.google.com/calendar/embed?src=613dad0bf9529b81b36affb49829dc35facd756d7dce6488ba47faaed16acce0@group.calendar.google.com&ctz=UTC';
+        var calendarUrl = 'https://calendar.google.com/calendar/embed?src=https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&bgcolor=%23be6c08&showTitle=0&showPrint=0&showTz=0&showCalendars=0&src=NjEzZGFkMGJmOTUyOWI4MWIzNmFmZmI0OTgyOWRjMzVmYWNkNzU2ZDdkY2U2NDg4YmE0N2ZhYWVkMTZhY2NlMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23AD1457&ctz=UTC'; // Replace with your calendar src
         if (filterValue !== 'all') {
           calendarUrl += '&ctext=' + filterValue;
         }
@@ -114,6 +114,7 @@
   </script>
 </body>
 </html>
+
 
 
 
