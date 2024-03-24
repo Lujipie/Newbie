@@ -68,10 +68,10 @@
     <ul class="group">
       <li class="active"><a href="#main">Home</a></li>
       <li><a href="#Computer Science">Computer Science</a></li>
-      <li><a href="#Electrical Engineering">Engineering</a></li>
+      <li><a href="#Electrical Engineering">Electrical Engineering</a></li>
       <li><a href="#Computer Engineering">Computer Engineering</a></li>
     </ul>
-    
+    <a href="#" class="lang">En</a>
   </nav>
   </section>
 <style>
@@ -101,26 +101,26 @@ a{
     nav{
 	display:flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items:center;
 	text-transform: uppercase;
 	font-weight: 600;
 	letter-spacing: 2px;
 	font-family: calibri;
-	position: fixed;
+	position:fixed;
 	top: 0;
 	left: 0;
 	width:100%;
-	box-sizing: border-box;
+	box-sizing:border-box;
 	padding: 10px 50px;
 	background-color:#F4F7FF;
 	box-shadow:2px 2px 12px rgba(0,0,0,0.05); 
 	z-index: 1;
 }
  
-.menu{
-	display: flex;
+.group{
+	display:flex;
 }
-.menu li a{
+.group li a{
 	padding: 10px 15px;
 	color:#6c707c;
 	font-size: 12px;
@@ -135,11 +135,11 @@ a{
 	color:#292929;
 	font-family:Poppins;
 }
-.group{
-	display: none;
+."Computer Science"{
+	display:none;
 }
 .active a,
-.menu li a:hover{
+.group li a:hover{
 	background-color:#292929;
 	color:#FFF!important;
 	font-weight: bold;
