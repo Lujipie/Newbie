@@ -56,17 +56,20 @@
   <iframe id="calendar" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&bgcolor=%23be6c08&showTitle=0&showPrint=0&showTz=0&showCalendars=0&src=NjEzZGFkMGJmOTUyOWI4MWIzNmFmZmI0OTgyOWRjMzVmYWNkNzU2ZDdkY2U2NDg4YmE0N2ZhYWVkMTZhY2NlMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23AD1457" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
   <!-- Button to trigger adding events from Google Sheets to Google Calendar -->
-  <button onclick="refreshCalendar()">Refresh</button>
+  <button id="refreshButton">Refresh</button>
 
   <script>
     // Function to call Google Apps Script function
     function refreshCalendar() {
       google.script.run.addEventsToCalendar();
     }
+    
+    // Attach event listener to the button
+    document.getElementById("refreshButton").addEventListener("click", refreshCalendar);
   </script>
 
-  <!-- Load Google Apps Script -->
-  <script src="https://script.google.com/macros/s/AKfycbxyPi6zdfIRt63uBW55Tq-VF-kCmTxkXfxmOtMlYYl9tOskqBWbuuYExqEzvXh7I-n2/exec"></script>
+  <!-- Include the Google Apps Script library -->
+  <script src="https://www.google.com/script/appx-client.js"></script>
   <script>
     // Load Google Calendar API client library
     function initClient() {
