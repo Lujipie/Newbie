@@ -64,7 +64,7 @@
     <input type="text" id="title" name="title" required><br>
 
     <label for="dates">Event Date:</label><br>
-    <input type="text" id="dates" name="dates" required><br>
+    <input type="date" id="dates" name="dates" required><br>
 
     <label for="startTime">Start Time:</label><br>
     <input type="time" id="startTime" name="startTime" required><br>
@@ -84,13 +84,14 @@
     <input type="submit" value="Add Event">
   </form>
 
-  <script>
+<script>
   document.getElementById('event-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
+    console.log('Form submitted'); // Test if the event listener is triggered
 
     // Get form data
     const title = document.getElementById('title').value;
-    const date = document.getElementById('dates').value; // Corrected ID
+    const date = document.getElementById('dates').value;
     const startTime = document.getElementById('startTime').value;
     const endTime = document.getElementById('endTime').value;
     const tag = document.getElementById('tag').value;
@@ -98,20 +99,23 @@
     // Construct the data object
     const eventData = {
       title: title,
-      date: date,
+      dates: date, // Corrected field name
       startTime: startTime,
       endTime: endTime,
       tag: tag
     };
 
     // Send the data to Google Apps Script
-    google.script.run.doPost(eventData);
+    google.script.run.doPost(eventData, function(response) {
+      // Optional: Handle response from the server
+      console.log(response);
+    });
 
     // Optional: Clear the form fields after submission
     this.reset();
-});
-
+  });
 </script>
+
 </body>
 </html>
 
