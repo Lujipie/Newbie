@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Google Calendar Integration</title>
+    <title>Event Calendar</title>
     <style>
       body {
         font-family: "Montserrat", sans-serif;
@@ -13,7 +13,11 @@
       }
 
       h1 {
-        color: #355e3b; /* green color for the heading */
+        color: #f28c28; /* Orange color for the heading */
+        text-align: center; /* Center align the text */
+        border-radius: 20px; /* Rounded corners */
+        padding: 10px 20px; /* Add padding */
+        display: inline-block; /* Make the bubble only as wide as necessary */
       }
 
       #calendar {
@@ -32,18 +36,39 @@
         padding: 10px;
         font-size: 16px;
         border-radius: 10px; /* Rounded dropdown */
-        border: 2px solid #ff69b4; /* Pink border */
+        border: 2px solid #f28c28; /* Pink border */
         background-color: #fff; /* White background */
-        color: #ff69b4; /* Pink text color */
+        color: #355e3b; /* Pink text color */
       }
     </style>
-    <a href="index.html" class="back-to-main">Back to Main Page</a>
+    <a href="index.html" class="back-to-main"><span>&#8592;</span></a>
 
     <style>
       /* Additional styles for the "Back to Main Page" button */
       .back-to-main {
         position: absolute;
-        top: -180px;
+        top: 20px;
+        left: 20px;
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #f28c28; /* Fun button color */
+        color: #fff; /* White text color for buttons */
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .back-to-main:hover {
+        background-color: #b87333; /* Darker button color on hover */
+      }
+    </style>
+    <a href="index.html" class="back-to-main"><span>&#8592;</span></a>
+
+    <style>
+      /* Additional styles for the "Back to Main Page" button */
+      .back-to-main {
+        position: absolute;
+        top: 20px;
         left: 20px;
         display: inline-block;
         padding: 10px 20px;
@@ -117,9 +142,9 @@
       <label for="filter">Filter by Event Type:</label>
       <select id="filter">
         <option value="all">All</option>
-        <option value="event1">Event Type 1</option>
-        <option value="event2">Event Type 2</option>
-        <option value="event3">Event Type 3</option>
+        <option value="">Computer Science</option>
+        <option value="event2">Electrical and Computer Engineering</option>
+        <option value="event3">Mechanical Engineering</option>
       </select>
     </div>
 
